@@ -1,0 +1,74 @@
+{
+  "version": 3,
+  "targets": {
+    "net6.0-windows7.0": {}
+  },
+  "libraries": {},
+  "projectFileDependencyGroups": {
+    "net6.0-windows7.0": []
+  },
+  "packageFolders": {
+    "C:\\Users\\r_vil\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\r_vil\\Documents\\Repositorios\\GymTheBeach\\GymTheBeach.csproj",
+      "projectName": "GymTheBeach",
+      "projectPath": "C:\\Users\\r_vil\\Documents\\Repositorios\\GymTheBeach\\GymTheBeach.csproj",
+      "packagesPath": "C:\\Users\\r_vil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\r_vil\\Documents\\Repositorios\\GymTheBeach\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\r_vil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net6.0-windows"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\r_vil\\Documents\\Repositorios\\Intiza\\lib\\Aspose.Cell.12.8.1.22": {},
+        "C:\\Users\\r_vil\\Documents\\Repositorios\\Intiza\\lib\\ComponentSpace.Saml2.Net.Licensed.3.1.0": {},
+        "C:\\Users\\r_vil\\Documents\\Repositorios\\Intiza\\lib\\DidiSoft.Pgp.1.9.0.29": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net6.0-windows7.0": {
+        "targetAlias": "net6.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
