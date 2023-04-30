@@ -5,11 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="e161b98b32524bb19b6d00fb1bdec7cc" Name="Diagram1">
-        <EntityTypeShape EntityType="GymTheBeach.Generos" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="GymTheBeach.Membresias" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GymTheBeach.Pagos" Width="1.5" PointX="5.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GymTheBeach.Presentismo" Width="1.5" PointX="5.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GymTheBeach.Usuarios" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" FillColor="Green" />
+        <EntityTypeShape EntityType="GymTheBeach.Generos" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="GymTheBeach.Membresias" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="GymTheBeach.Pagos" Width="1.5" PointX="5.625" PointY="1.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="GymTheBeach.Presentismo" Width="1.5" PointX="6.75" PointY="3.25" IsExpanded="false" />
+        <EntityTypeShape EntityType="GymTheBeach.Usuarios" Width="1.5" PointX="3" PointY="2.75" IsExpanded="false" FillColor="Green" />
         <AssociationConnector Association="GymTheBeach.FK_UsuariosXGeneros" ManuallyRouted="false" />
         <AssociationConnector Association="GymTheBeach.FK_UsuariosXMembresias" ManuallyRouted="false" />
         <AssociationConnector Association="GymTheBeach.FK_PagosXUsuarios" />

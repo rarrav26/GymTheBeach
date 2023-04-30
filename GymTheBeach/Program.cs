@@ -17,10 +17,10 @@ namespace GymTheBeach
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var frmLogin = new frmLogin();
-            Application.Run(frmLogin);
+            //var frmLogin = new frmLogin();
+            //Application.Run(frmLogin);
 
-            if (frmLogin.IsLoggedIn)
+            //if (frmLogin.IsLoggedIn)
                 Application.Run(new frmMain());
         }
     }

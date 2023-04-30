@@ -12,3 +12,17 @@ C:\Users\r_vil\Documents\Repositorios\GymTheBeach\Models\obj\Debug\Models.csproj
 C:\Users\r_vil\Documents\Repositorios\GymTheBeach\Models\obj\Debug\Models.csproj.CopyComplete
 C:\Users\r_vil\Documents\Repositorios\GymTheBeach\Models\obj\Debug\Models.dll
 C:\Users\r_vil\Documents\Repositorios\GymTheBeach\Models\obj\Debug\Models.pdb
+E:\Repositorios\GymTheBeach\Models\bin\Debug\Models.dll.config
+E:\Repositorios\GymTheBeach\Models\bin\Debug\Models.dll
+E:\Repositorios\GymTheBeach\Models\bin\Debug\Models.pdb
+E:\Repositorios\GymTheBeach\Models\bin\Debug\EntityFramework.dll
+E:\Repositorios\GymTheBeach\Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Repositorios\GymTheBeach\Models\bin\Debug\EntityFramework.xml
+E:\Repositorios\GymTheBeach\Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.Properties.Resources.resources
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.csproj.GenerateResource.cache
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.csproj.CopyComplete
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.dll
+E:\Repositorios\GymTheBeach\Models\obj\Debug\Models.pdb

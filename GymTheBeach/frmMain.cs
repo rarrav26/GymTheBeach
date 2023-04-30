@@ -15,6 +15,17 @@ namespace GymTheBeach
         public frmMain()
         {
             InitializeComponent();
+            timer1.Start();
+        }
+
+        private void btnUsuario_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblFechaYHora.Text = DateTime.Now.ToString("HH:mm:ss" + Environment.NewLine + "dd/MM/yyyy");
         }
     }
 }
