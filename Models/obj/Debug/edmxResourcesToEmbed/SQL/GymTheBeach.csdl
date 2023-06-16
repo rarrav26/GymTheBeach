@@ -1,56 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="GymTheBeach" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="GymTheBeachModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Actividades">
+    <Key>
+      <PropertyRef Name="ActividadID" />
+    </Key>
+    <Property Name="ActividadID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Meses" Type="Int32" Nullable="false" />
+    <Property Name="Costo" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.ActividadesXUsuario" FromRole="Actividades" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Asistencia">
+    <Key>
+      <PropertyRef Name="AsistenciaID" />
+    </Key>
+    <Property Name="AsistenciaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Asistencia_Usuarios" FromRole="Asistencia" ToRole="Usuarios" />
+  </EntityType>
   <EntityType Name="Generos">
     <Key>
       <PropertyRef Name="GeneroID" />
     </Key>
     <Property Name="GeneroID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Usuarios" Relationship="Self.FK_UsuariosXGeneros" FromRole="Generos" ToRole="Usuarios" />
-  </EntityType>
-  <EntityType Name="Membresias">
-    <Key>
-      <PropertyRef Name="MembresiaID" />
-    </Key>
-    <Property Name="MembresiaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Meses" Type="Int32" Nullable="false" />
-    <Property Name="Costo" Type="Int32" Nullable="false" />
-    <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Habilitado" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Usuarios" Relationship="Self.FK_UsuariosXMembresias" FromRole="Membresias" ToRole="Usuarios" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Generos" FromRole="Generos" ToRole="Usuarios" />
   </EntityType>
   <EntityType Name="Pagos">
     <Key>
       <PropertyRef Name="PagoID" />
     </Key>
     <Property Name="PagoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
     <Property Name="Descripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Monto" Type="Int32" Nullable="false" />
     <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Usuarios" Relationship="GymTheBeach.FK_PagosXUsuarios" FromRole="Pagos" ToRole="Usuarios" />
-  </EntityType>
-  <EntityType Name="Presentismo">
-    <Key>
-      <PropertyRef Name="PresentismoID" />
-    </Key>
-    <Property Name="PresentismoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Usuarios" Relationship="GymTheBeach.FK_PresentismoXUsuarios" FromRole="Presentismo" ToRole="Usuarios" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_Pagos_Usuarios" FromRole="Pagos" ToRole="Usuarios" />
   </EntityType>
   <EntityType Name="Usuarios">
     <Key>
       <PropertyRef Name="UserID" />
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MembresiaID" Type="Int32" Nullable="false" />
     <Property Name="Nombre" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Apellido" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DNI" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="GeneroID" Type="Int32" Nullable="false" />
     <Property Name="Habilitado" Type="Boolean" Nullable="false" />
     <Property Name="EsAdmin" Type="Boolean" />
+    <Property Name="Username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Hash" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <Property Name="Salt" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
     <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
     <Property Name="Telefono" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
     <Property Name="Domicilio" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
@@ -58,15 +60,24 @@
     <Property Name="Email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
     <Property Name="ComoNosConocio" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Observaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Generos" Relationship="Self.FK_UsuariosXGeneros" FromRole="Usuarios" ToRole="Generos" />
-    <NavigationProperty Name="Membresias" Relationship="Self.FK_UsuariosXMembresias" FromRole="Usuarios" ToRole="Membresias" />
-    <NavigationProperty Name="Pagos" Relationship="GymTheBeach.FK_PagosXUsuarios" FromRole="Usuarios" ToRole="Pagos" />
-    <NavigationProperty Name="Presentismo" Relationship="GymTheBeach.FK_PresentismoXUsuarios" FromRole="Usuarios" ToRole="Presentismo" />
-    <Property Name="Username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-    <Property Name="Salt" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
-    <Property Name="Hash" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Asistencia" Relationship="Self.FK_Asistencia_Usuarios" FromRole="Usuarios" ToRole="Asistencia" />
+    <NavigationProperty Name="Generos" Relationship="Self.FK_Usuarios_Generos" FromRole="Usuarios" ToRole="Generos" />
+    <NavigationProperty Name="Pagos" Relationship="Self.FK_Pagos_Usuarios" FromRole="Usuarios" ToRole="Pagos" />
+    <NavigationProperty Name="Actividades" Relationship="Self.ActividadesXUsuario" FromRole="Usuarios" ToRole="Actividades" />
   </EntityType>
-  <Association Name="FK_UsuariosXGeneros">
+  <Association Name="FK_Asistencia_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Asistencia" Type="Self.Asistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Asistencia">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuarios_Generos">
     <End Role="Generos" Type="Self.Generos" Multiplicity="1" />
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
     <ReferentialConstraint>
@@ -78,44 +89,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UsuariosXMembresias">
-    <End Role="Membresias" Type="Self.Membresias" Multiplicity="1" />
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Membresias">
-        <PropertyRef Name="MembresiaID" />
-      </Principal>
-      <Dependent Role="Usuarios">
-        <PropertyRef Name="MembresiaID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityContainer Name="GymTheBeachEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Generos" EntityType="Self.Generos" />
-    <EntitySet Name="Membresias" EntityType="Self.Membresias" />
-    <EntitySet Name="Pagos" EntityType="Self.Pagos" />
-    <EntitySet Name="Presentismo" EntityType="Self.Presentismo" />
-    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-    <AssociationSet Name="FK_UsuariosXGeneros" Association="Self.FK_UsuariosXGeneros">
-      <End Role="Generos" EntitySet="Generos" />
-      <End Role="Usuarios" EntitySet="Usuarios" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UsuariosXMembresias" Association="Self.FK_UsuariosXMembresias">
-      <End Role="Membresias" EntitySet="Membresias" />
-      <End Role="Usuarios" EntitySet="Usuarios" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PagosXUsuarios" Association="GymTheBeach.FK_PagosXUsuarios">
-      <End Role="Usuarios" EntitySet="Usuarios" />
-      <End Role="Pagos" EntitySet="Pagos" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PresentismoXUsuarios" Association="GymTheBeach.FK_PresentismoXUsuarios">
-      <End Role="Usuarios" EntitySet="Usuarios" />
-      <End Role="Presentismo" EntitySet="Presentismo" />
-    </AssociationSet>
-  </EntityContainer>
-  <Association Name="FK_PagosXUsuarios">
-    <End Type="GymTheBeach.Usuarios" Role="Usuarios" Multiplicity="1" />
-    <End Type="GymTheBeach.Pagos" Role="Pagos" Multiplicity="*" />
+  <Association Name="FK_Pagos_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
         <PropertyRef Name="UserID" />
@@ -125,16 +101,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_PresentismoXUsuarios">
-    <End Type="GymTheBeach.Usuarios" Role="Usuarios" Multiplicity="1" />
-    <End Type="GymTheBeach.Presentismo" Role="Presentismo" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuarios">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="Presentismo">
-        <PropertyRef Name="UserID" />
-      </Dependent>
-    </ReferentialConstraint>
+  <Association Name="ActividadesXUsuario">
+    <End Role="Actividades" Type="Self.Actividades" Multiplicity="*" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
   </Association>
+  <EntityContainer Name="GymTheBeachEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actividades" EntityType="Self.Actividades" />
+    <EntitySet Name="Asistencia" EntityType="Self.Asistencia" />
+    <EntitySet Name="Generos" EntityType="Self.Generos" />
+    <EntitySet Name="Pagos" EntityType="Self.Pagos" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_Asistencia_Usuarios" Association="Self.FK_Asistencia_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Asistencia" EntitySet="Asistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuarios_Generos" Association="Self.FK_Usuarios_Generos">
+      <End Role="Generos" EntitySet="Generos" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pagos_Usuarios" Association="Self.FK_Pagos_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="ActividadesXUsuario" Association="Self.ActividadesXUsuario">
+      <End Role="Actividades" EntitySet="Actividades" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
 </Schema>

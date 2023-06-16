@@ -13,6 +13,7 @@ namespace GymTheBeach
     public partial class frmLogin : Form
     {
         public bool IsLoggedIn { get; set; }
+        public bool LeerHuellas { get; set; }
 
         public frmLogin()
         {
@@ -23,31 +24,11 @@ namespace GymTheBeach
         {
             var success = false;
 
-            if (string.IsNullOrWhiteSpace(txtUsuario.Text))
-            {
-                var hint = new ToolTip
-                {
-                    IsBalloon = true,
-                    ToolTipTitle = "El usuario no puede estar vacío",
-                    ToolTipIcon = ToolTipIcon.Error
-                };
-                hint.Show("Por favor ingresa un usuario", txtUsuario, 150, -75, 2000);
-                txtUsuario.Focus();
+            if (Common.ShowHint(txtUsuario, "El usuario no puede estar vacío", "Por favor ingresa un usuario", ToolTipIcon.Error))
                 return;
-            }
 
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                var hint = new ToolTip
-                {
-                    IsBalloon = true,
-                    ToolTipTitle = "La contraseña no puede estar vacía",
-                    ToolTipIcon = ToolTipIcon.Error
-                };
-                hint.Show("Por favor ingresa una contraseña", txtPassword, 150, -75, 2000);
-                txtPassword.Focus();
+            if (Common.ShowHint(txtPassword, "La contraseña no puede estar vacía", "Por favor ingresa una contraseña", ToolTipIcon.Error))
                 return;
-            }
 
             var user = Models.Data.SQL.Context.Usuarios.FirstOrDefault(u => u.Username == txtUsuario.Text);
 
@@ -66,15 +47,8 @@ namespace GymTheBeach
             }
             else
             {
-                var hint = new ToolTip
-                {
-                    IsBalloon = true,
-                    ToolTipTitle = "Usuario o contraseña incorrectos",
-                    ToolTipIcon = ToolTipIcon.Error
-                };
-                hint.Show("Por favor vuelve a intentarlo", txtPassword, 150, -75, 5000);
                 txtPassword.Text = string.Empty;
-                txtPassword.Focus();
+                Common.ShowHint(txtPassword, "Usuario o contraseña incorrectos", "Por favor vuelve a intentarlo", ToolTipIcon.Error, 5000);
             }
         }
     }

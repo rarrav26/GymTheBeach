@@ -44,17 +44,18 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsuario.Location = new System.Drawing.Point(20, 60);
+            this.lblUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
+            this.lblUsuario.Location = new System.Drawing.Point(44, 59);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(63, 19);
+            this.lblUsuario.Size = new System.Drawing.Size(73, 21);
             this.lblUsuario.TabIndex = 1;
             this.lblUsuario.Text = "Usuario:";
             // 
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(113, 57);
+            this.txtUsuario.Location = new System.Drawing.Point(123, 58);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(180, 27);
             this.txtUsuario.TabIndex = 2;
@@ -62,17 +63,18 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(20, 108);
+            this.lblPassword.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
+            this.lblPassword.Location = new System.Drawing.Point(17, 106);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(87, 19);
+            this.lblPassword.Size = new System.Drawing.Size(100, 21);
             this.lblPassword.TabIndex = 3;
             this.lblPassword.Text = "Contraseña:";
             // 
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPassword.Location = new System.Drawing.Point(113, 105);
+            this.txtPassword.Location = new System.Drawing.Point(123, 105);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '•';
             this.txtPassword.Size = new System.Drawing.Size(180, 27);
@@ -80,19 +82,22 @@
             // 
             // btnIngresar
             // 
-            this.btnIngresar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(113, 152);
+            this.btnIngresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnIngresar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnIngresar.Font = new System.Drawing.Font("Leelawadee UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnIngresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
+            this.btnIngresar.Location = new System.Drawing.Point(123, 152);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(102, 34);
             this.btnIngresar.TabIndex = 5;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Text = "INGRESAR";
+            this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // lblSeparador
             // 
             this.lblSeparador.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblSeparador.Location = new System.Drawing.Point(332, 9);
+            this.lblSeparador.Location = new System.Drawing.Point(337, 9);
             this.lblSeparador.Name = "lblSeparador";
             this.lblSeparador.Size = new System.Drawing.Size(2, 180);
             this.lblSeparador.TabIndex = 6;
@@ -100,20 +105,22 @@
             // lblIngresoConUsuario
             // 
             this.lblIngresoConUsuario.AutoSize = true;
-            this.lblIngresoConUsuario.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresoConUsuario.Font = new System.Drawing.Font("Leelawadee UI", 10F);
+            this.lblIngresoConUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
             this.lblIngresoConUsuario.Location = new System.Drawing.Point(73, 13);
             this.lblIngresoConUsuario.Name = "lblIngresoConUsuario";
-            this.lblIngresoConUsuario.Size = new System.Drawing.Size(184, 18);
+            this.lblIngresoConUsuario.Size = new System.Drawing.Size(185, 19);
             this.lblIngresoConUsuario.TabIndex = 0;
             this.lblIngresoConUsuario.Text = "Ingrese usuario y contraseña";
             // 
             // lblIngresoConHuella
             // 
             this.lblIngresoConHuella.AutoSize = true;
-            this.lblIngresoConHuella.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIngresoConHuella.Font = new System.Drawing.Font("Leelawadee UI", 10F);
+            this.lblIngresoConHuella.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
             this.lblIngresoConHuella.Location = new System.Drawing.Point(373, 13);
             this.lblIngresoConHuella.Name = "lblIngresoConHuella";
-            this.lblIngresoConHuella.Size = new System.Drawing.Size(191, 18);
+            this.lblIngresoConHuella.Size = new System.Drawing.Size(190, 19);
             this.lblIngresoConHuella.TabIndex = 7;
             this.lblIngresoConHuella.Text = "O apoye su huella en el lector";
             // 
@@ -132,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(198)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(594, 198);
             this.Controls.Add(this.pbHuella);
             this.Controls.Add(this.lblIngresoConHuella);

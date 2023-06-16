@@ -4,21 +4,21 @@ GO
 USE GymTheBeach
 GO
 
-CREATE TABLE Membresias (
-	MembresiaID INT IDENTITY(1, 1),
+CREATE TABLE Actividades (
+	ActividadID INT IDENTITY(1, 1),
 	Meses INT NOT NULL,
 	Costo INT NOT NULL,
 	Descripcion NVARCHAR(30) NOT NULL,
 	Habilitado BIT NOT NULL,
-	CONSTRAINT PK_Membresias PRIMARY KEY (MembresiaID)
+	CONSTRAINT PK_Actividades PRIMARY KEY (ActividadID)
 	)
 GO
 
-SET IDENTITY_INSERT Membresias ON
+SET IDENTITY_INSERT Actividades ON
 GO
 
-INSERT INTO Membresias (
-	MembresiaID,
+INSERT INTO Actividades (
+	ActividadID,
 	Meses,
 	Costo,
 	Descripcion,
@@ -31,8 +31,8 @@ SELECT 1,
 	1
 GO
 
-INSERT INTO Membresias (
-	MembresiaID,
+INSERT INTO Actividades (
+	ActividadID,
 	Meses,
 	Costo,
 	Descripcion,
@@ -45,8 +45,8 @@ SELECT 2,
 	1
 GO
 
-INSERT INTO Membresias (
-	MembresiaID,
+INSERT INTO Actividades (
+	ActividadID,
 	Meses,
 	Costo,
 	Descripcion,
@@ -59,8 +59,8 @@ SELECT 3,
 	1
 GO
 
-INSERT INTO Membresias (
-	MembresiaID,
+INSERT INTO Actividades (
+	ActividadID,
 	Meses,
 	Costo,
 	Descripcion,
@@ -73,8 +73,8 @@ SELECT 4,
 	1
 GO
 
-INSERT INTO Membresias (
-	MembresiaID,
+INSERT INTO Actividades (
+	ActividadID,
 	Meses,
 	Costo,
 	Descripcion,
@@ -87,7 +87,7 @@ SELECT 5,
 	1
 GO
 
-SET IDENTITY_INSERT Membresias OFF
+SET IDENTITY_INSERT Actividades OFF
 GO
 
 CREATE TABLE Generos (
@@ -128,13 +128,10 @@ GO
 
 CREATE TABLE Usuarios (
 	UserID INT IDENTITY(1, 1),
-	MembresiaID INT NOT NULL DEFAULT(2),
-	-- Mensual por defecto
 	Nombre NVARCHAR(64) NOT NULL,
 	Apellido NVARCHAR(64) NOT NULL,
 	DNI NVARCHAR(15) NOT NULL,
-	GeneroID INT NOT NULL DEFAULT(3),
-	-- Sin especificar por defecto
+	GeneroID INT NOT NULL DEFAULT(3), -- Sin especificar por defecto
 	Habilitado BIT NOT NULL,
 	EsAdmin BIT NULL,
 	Username NVARCHAR(64) NULL,
@@ -147,9 +144,22 @@ CREATE TABLE Usuarios (
 	Email NVARCHAR(64) NULL,
 	ComoNosConocio NVARCHAR(100) NULL,
 	Observaciones NVARCHAR(200) NULL,
+	Saldo INT DEFAULT(0),
+	CreatorUserID INT NULL,
 	CONSTRAINT PK_Usuarios PRIMARY KEY (UserID),
-	CONSTRAINT FK_UsuariosXMembresias FOREIGN KEY (MembresiaID) REFERENCES Membresias(MembresiaID),
-	CONSTRAINT FK_UsuariosXGeneros FOREIGN KEY (GeneroID) REFERENCES Generos(GeneroID)
+	CONSTRAINT FK_Usuarios_Generos FOREIGN KEY (GeneroID) REFERENCES Generos(GeneroID)
+	)
+GO
+
+CREATE TABLE ActividadesXUsuario (
+	UserID INT,
+	ActividadID INT DEFAULT(2), -- Mensual por defecto
+	CONSTRAINT PK_ActividadesXUsuario PRIMARY KEY (
+		UserID,
+		ActividadID
+		),
+	CONSTRAINT FK_ActividadesXUsuario_Usuarios FOREIGN KEY (UserID) REFERENCES Usuarios(UserID),
+	CONSTRAINT FK_ActividadesXUsuario_Actividades FOREIGN KEY (ActividadID) REFERENCES Actividades(ActividadID)
 	)
 GO
 
@@ -160,16 +170,16 @@ CREATE TABLE Pagos (
 	Monto INT NOT NULL,
 	Fecha DATETIME NOT NULL,
 	CONSTRAINT PK_Pagos PRIMARY KEY (PagoID),
-	CONSTRAINT FK_PagosXUsuarios FOREIGN KEY (UserID) REFERENCES Usuarios(UserID)
+	CONSTRAINT FK_Pagos_Usuarios FOREIGN KEY (UserID) REFERENCES Usuarios(UserID)
 	)
 GO
 
-CREATE TABLE Presentismo (
-	PresentismoID INT IDENTITY(1, 1),
+CREATE TABLE Asistencia (
+	AsistenciaID INT IDENTITY(1, 1),
 	UserID INT NOT NULL,
 	Fecha DATETIME NOT NULL DEFAULT(GETDATE()),
-	CONSTRAINT PK_Presentismo PRIMARY KEY (PresentismoID),
-	CONSTRAINT FK_PresentismoXUsuarios FOREIGN KEY (UserID) REFERENCES Usuarios(UserID)
+	CONSTRAINT PK_Asistencia PRIMARY KEY (AsistenciaID),
+	CONSTRAINT FK_Asistencia_Usuarios FOREIGN KEY (UserID) REFERENCES Usuarios(UserID)
 	)
 GO
 

@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e161b98b32524bb19b6d00fb1bdec7cc" Name="Diagram1">
-        <EntityTypeShape EntityType="GymTheBeach.Generos" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="false" />
-        <EntityTypeShape EntityType="GymTheBeach.Membresias" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="false" />
-        <EntityTypeShape EntityType="GymTheBeach.Pagos" Width="1.5" PointX="5.625" PointY="1.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="GymTheBeach.Presentismo" Width="1.5" PointX="6.75" PointY="3.25" IsExpanded="false" />
-        <EntityTypeShape EntityType="GymTheBeach.Usuarios" Width="1.5" PointX="3" PointY="2.75" IsExpanded="false" FillColor="Green" />
-        <AssociationConnector Association="GymTheBeach.FK_UsuariosXGeneros" ManuallyRouted="false" />
-        <AssociationConnector Association="GymTheBeach.FK_UsuariosXMembresias" ManuallyRouted="false" />
-        <AssociationConnector Association="GymTheBeach.FK_PagosXUsuarios" />
-        <AssociationConnector Association="GymTheBeach.FK_PresentismoXUsuarios" />
+      <Diagram DiagramId="3c5811f8e57d41c18b00741380e37501" Name="Diagram1">
+        <EntityTypeShape EntityType="GymTheBeachModel.Actividades" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymTheBeachModel.Asistencia" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymTheBeachModel.Generos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymTheBeachModel.Pagos" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GymTheBeachModel.Usuarios" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="GymTheBeachModel.FK_Asistencia_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="GymTheBeachModel.FK_Usuarios_Generos" ManuallyRouted="false" />
+        <AssociationConnector Association="GymTheBeachModel.FK_Pagos_Usuarios" ManuallyRouted="false" />
+        <AssociationConnector Association="GymTheBeachModel.ActividadesXUsuario" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

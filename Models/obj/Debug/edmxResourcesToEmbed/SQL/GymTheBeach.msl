@@ -1,18 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="GymTheBeachStoreContainer" CdmEntityContainer="GymTheBeachEntities">
-    <EntitySetMapping Name="Generos">
-      <EntityTypeMapping TypeName="GymTheBeach.Generos">
-        <MappingFragment StoreEntitySet="Generos">
-          <ScalarProperty Name="GeneroID" ColumnName="GeneroID" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Membresias">
-      <EntityTypeMapping TypeName="GymTheBeach.Membresias">
-        <MappingFragment StoreEntitySet="Membresias">
-          <ScalarProperty Name="MembresiaID" ColumnName="MembresiaID" />
+  <EntityContainerMapping StorageEntityContainer="GymTheBeachModelStoreContainer" CdmEntityContainer="GymTheBeachEntities">
+    <EntitySetMapping Name="Actividades">
+      <EntityTypeMapping TypeName="GymTheBeachModel.Actividades">
+        <MappingFragment StoreEntitySet="Actividades">
+          <ScalarProperty Name="ActividadID" ColumnName="ActividadID" />
           <ScalarProperty Name="Meses" ColumnName="Meses" />
           <ScalarProperty Name="Costo" ColumnName="Costo" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -20,40 +12,47 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Pagos">
-      <EntityTypeMapping TypeName="GymTheBeach.Pagos">
-        <MappingFragment StoreEntitySet="Pagos">
+    <EntitySetMapping Name="Asistencia">
+      <EntityTypeMapping TypeName="GymTheBeachModel.Asistencia">
+        <MappingFragment StoreEntitySet="Asistencia">
+          <ScalarProperty Name="AsistenciaID" ColumnName="AsistenciaID" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Generos">
+      <EntityTypeMapping TypeName="GymTheBeachModel.Generos">
+        <MappingFragment StoreEntitySet="Generos">
+          <ScalarProperty Name="GeneroID" ColumnName="GeneroID" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagos">
+      <EntityTypeMapping TypeName="GymTheBeachModel.Pagos">
+        <MappingFragment StoreEntitySet="Pagos">
           <ScalarProperty Name="PagoID" ColumnName="PagoID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
           <ScalarProperty Name="Monto" ColumnName="Monto" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Presentismo">
-      <EntityTypeMapping TypeName="GymTheBeach.Presentismo">
-        <MappingFragment StoreEntitySet="Presentismo">
-          <ScalarProperty Name="PresentismoID" ColumnName="PresentismoID" />
-          <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Usuarios">
-      <EntityTypeMapping TypeName="GymTheBeach.Usuarios">
+      <EntityTypeMapping TypeName="GymTheBeachModel.Usuarios">
         <MappingFragment StoreEntitySet="Usuarios">
-          <ScalarProperty Name="Hash" ColumnName="Hash" />
-          <ScalarProperty Name="Salt" ColumnName="Salt" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
-          <ScalarProperty Name="MembresiaID" ColumnName="MembresiaID" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Apellido" ColumnName="Apellido" />
           <ScalarProperty Name="DNI" ColumnName="DNI" />
           <ScalarProperty Name="GeneroID" ColumnName="GeneroID" />
           <ScalarProperty Name="Habilitado" ColumnName="Habilitado" />
           <ScalarProperty Name="EsAdmin" ColumnName="EsAdmin" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Hash" ColumnName="Hash" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
           <ScalarProperty Name="Telefono" ColumnName="Telefono" />
           <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
@@ -64,5 +63,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <AssociationSetMapping Name="ActividadesXUsuario" TypeName="GymTheBeachModel.ActividadesXUsuario" StoreEntitySet="ActividadesXUsuario">
+      <EndProperty Name="Actividades">
+        <ScalarProperty Name="ActividadID" ColumnName="ActividadID" />
+      </EndProperty>
+      <EndProperty Name="Usuarios">
+        <ScalarProperty Name="UserID" ColumnName="UserID" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>
