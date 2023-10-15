@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterFingerprint));
             this.lblIndicaciones = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.pbStatusHuella3 = new System.Windows.Forms.PictureBox();
             this.pbStatusHuella2 = new System.Windows.Forms.PictureBox();
             this.pbStatusHuella1 = new System.Windows.Forms.PictureBox();
@@ -37,8 +39,6 @@
             this.pbHuella2 = new System.Windows.Forms.PictureBox();
             this.pbHuella1 = new System.Windows.Forms.PictureBox();
             this.pbHuella = new System.Windows.Forms.PictureBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatusHuella3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatusHuella2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatusHuella1)).BeginInit();
@@ -58,6 +58,34 @@
             this.lblIndicaciones.TabIndex = 0;
             this.lblIndicaciones.Text = "Por favor, apoye su dedo 3 veces";
             this.lblIndicaciones.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.Green;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnGuardar.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar.ForeColor = System.Drawing.Color.White;
+            this.btnGuardar.Location = new System.Drawing.Point(12, 323);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(140, 58);
+            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.Text = "GUARDAR HUELLA";
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCancelar.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(166, 323);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(106, 58);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "CANCELAR";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // pbStatusHuella3
             // 
@@ -131,32 +159,6 @@
             this.pbHuella.TabIndex = 2;
             this.pbHuella.TabStop = false;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.Green;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGuardar.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.ForeColor = System.Drawing.Color.White;
-            this.btnGuardar.Location = new System.Drawing.Point(12, 323);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(140, 58);
-            this.btnGuardar.TabIndex = 17;
-            this.btnGuardar.Text = "GUARDAR HUELLA";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Brown;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancelar.Font = new System.Drawing.Font("Leelawadee UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(166, 323);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 58);
-            this.btnCancelar.TabIndex = 18;
-            this.btnCancelar.Text = "CANCELAR";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // frmRegisterFingerprint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,12 +176,12 @@
             this.Controls.Add(this.pbHuella1);
             this.Controls.Add(this.pbHuella);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRegisterFingerprint";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registrar nueva huella";
+            this.Text = "Registrar Huella";
             ((System.ComponentModel.ISupportInitialize)(this.pbStatusHuella3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatusHuella2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStatusHuella1)).EndInit();

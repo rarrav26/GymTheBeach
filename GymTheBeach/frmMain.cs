@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using libzkfpcsharp;
+using Models;
+using Models.Data;
 
 namespace GymTheBeach
 {
@@ -36,9 +39,15 @@ namespace GymTheBeach
             cmbGenero.Items.Add(new { Text = "Femenino", Value = "2" });
             cmbGenero.Items.Add(new { Text = "Sin especificar", Value = "3" });
 
+            // inicialización cmbGenero
+            cmbPermiso.DisplayMember = "Text";
+            cmbPermiso.ValueMember = "Value";
+            cmbPermiso.Items.Add(new { Text = "Encargado", Value = "1" });
+            cmbPermiso.Items.Add(new { Text = "Admin", Value = "2" });
+
             CurrentPage = 0;
 
-            // ejecutar un proceso que lea huellas
+            Program.ScanControl = Program.ScanControls.ScanUsers;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -54,8 +63,11 @@ namespace GymTheBeach
                 CurrentPage = 0;
 
                 // se ocultan todos los botones del header
-                btnListaUsuarios.Visible = false;
-                btnRegistrarNuevoUsuario.Visible = false;
+                foreach (var control in pnlHeader.Controls)
+                {
+                    if (control != lblSeparadorHeader)
+                        ((Control)control).Visible = false;
+                }
 
                 CurrentSection = section;
 
@@ -102,13 +114,20 @@ namespace GymTheBeach
             gbRegistrarUsuario.Visible = false;
 
             if (groupBox == gbListaUsuarios)
-                dgvUsuarios.DataSource = Models.Data.SQL.Context.Usuarios
-                    //.Select(u => new UsuarioDto(u))
+            {
+                dgvUsuarios.DataSource = SQL.Context.Usuarios
+                    //.Select(u => u.ToDataTransferObject())
                     .OrderBy(u => u.Apellido)
                     .ThenBy(u => u.Nombre)
                     .Skip(CurrentPage * 50)
                     .Take(50)
                     .ToList();
+            }
+            else if (groupBox == gbRegistrarUsuario)
+            {
+                lblPermiso.Visible = chkPermisos.Checked;
+                cmbPermiso.Visible = chkPermisos.Checked;
+            }
 
             if (groupBox != null)
                 groupBox.Visible = true;
@@ -146,6 +165,7 @@ namespace GymTheBeach
 
         private void btnRegistrarUsuario_Click(object sender, EventArgs e)
         {
+            // validaciones
             if (Common.ShowHint(txtNombre, "El nombre no puede estar vacío", "Por favor ingresa un nombre", ToolTipIcon.Error))
                 return;
 
@@ -154,10 +174,29 @@ namespace GymTheBeach
 
             if (Common.ShowHint(txtDNI, "El DNI/ID no puede estar vacío", "Por favor ingresa un identificador", ToolTipIcon.Error))
                 return;
+
+            Program.Permisos permisoRequerido;
+
+            // solo un admin puede crear un usuario con permisos especiales
+            if (chkPermisos.Checked)
+                permisoRequerido = Program.Permisos.Admin;
+            else
+                permisoRequerido = Program.Permisos.Encargado;
+
+            var dialogResult = new frmLogin(permisoRequerido).ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                // registramos el usuario (hay que validar que un encargado no pueda reducir los permisos de un admin)
+            }
+            else if (dialogResult != DialogResult.Cancel) // si canceló no mostramos nada
+            {
+                // notificamos que no tiene permiso u ocurrió un error
+            }
         }
 
-        private bool RegistrarNuevaHuella(Button btn)
+        private bool RegistrarNuevaHuella(object sender)
         {
+            var btn = (Button)sender;
             var frmRegisterFingerprint = new frmRegisterFingerprint(btn.Text);
 
             if (frmRegisterFingerprint.ShowDialog(this) == DialogResult.OK)
@@ -171,31 +210,64 @@ namespace GymTheBeach
 
         private void btnHuella1_Click(object sender, EventArgs e)
         {
-            RegistrarNuevaHuella((Button)sender);
+            RegistrarNuevaHuella(sender);
         }
 
         private void btnHuella2_Click(object sender, EventArgs e)
         {
-            RegistrarNuevaHuella((Button)sender);
+            RegistrarNuevaHuella(sender);
         }
 
         private void btnHuella3_Click(object sender, EventArgs e)
         {
-            RegistrarNuevaHuella((Button)sender);
+            RegistrarNuevaHuella(sender);
         }
 
         private void btnHuella4_Click(object sender, EventArgs e)
         {
-            RegistrarNuevaHuella((Button)sender);
+            RegistrarNuevaHuella(sender);
         }
 
         private void btnHuella5_Click(object sender, EventArgs e)
         {
-            RegistrarNuevaHuella((Button)sender);
+            RegistrarNuevaHuella(sender);
         }
 
         private void btnCamara_Click(object sender, EventArgs e)
         {
+        }
+
+        private void btnPagosUsuario_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnAsistUsuario_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnActivUsuario_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnDarDeBaja_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void dgvUsuarios_DoubleClick(object sender, EventArgs e)
+        {
+            // TODO: obtener el userID de la fila seleccionada y pasarlo como
+            // parámetro opcional para que ya cargue la vista "registro" del usuario con sus datos
+            showSection(Section.Usuarios, gbRegistrarUsuario);
+        }
+
+        private void chkPermisos_CheckedChanged(object sender, EventArgs e)
+        {
+            lblPermiso.Visible = chkPermisos.Checked;
+            cmbPermiso.Visible = chkPermisos.Checked;
         }
     }
 }

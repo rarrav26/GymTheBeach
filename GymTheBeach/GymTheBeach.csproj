@@ -43,6 +43,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="libzkfpcsharp">
+      <HintPath>lib\libzkfpcsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -112,6 +115,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="img\usuario.png" />
     <None Include="img\mano.png" />
     <None Include="img\pending.png" />
     <None Include="img\pagos.png" />
@@ -120,6 +124,7 @@
     <Content Include="img\beach.ico" />
     <None Include="img\boxeo.png" />
     <None Include="img\camara-reflex-digital.png" />
+    <None Include="img\cancelar.png" />
     <Content Include="img\check.png" />
     <None Include="img\edit.png" />
     <None Include="img\editar.png" />

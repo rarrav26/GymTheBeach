@@ -34,8 +34,13 @@
             this.gbListaUsuarios = new System.Windows.Forms.GroupBox();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.gbRegistrarUsuario = new System.Windows.Forms.GroupBox();
-            this.cbCargo = new System.Windows.Forms.ComboBox();
-            this.lblCargo = new System.Windows.Forms.Label();
+            this.btnDarDeBaja = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnActivUsuario = new System.Windows.Forms.Button();
+            this.btnAsistUsuario = new System.Windows.Forms.Button();
+            this.btnPagosUsuario = new System.Windows.Forms.Button();
+            this.cmbPermiso = new System.Windows.Forms.ComboBox();
+            this.lblPermiso = new System.Windows.Forms.Label();
             this.chkPermisos = new System.Windows.Forms.CheckBox();
             this.btnHuella5 = new System.Windows.Forms.Button();
             this.btnHuella4 = new System.Windows.Forms.Button();
@@ -43,6 +48,8 @@
             this.btnHuella2 = new System.Windows.Forms.Button();
             this.btnHuella1 = new System.Windows.Forms.Button();
             this.btnCamara = new System.Windows.Forms.Button();
+            this.pbMano = new System.Windows.Forms.PictureBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.btnRegistrarUsuario = new System.Windows.Forms.Button();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.lblObservaciones = new System.Windows.Forms.Label();
@@ -75,27 +82,21 @@
             this.lblSeparadorHora = new System.Windows.Forms.Label();
             this.lblFechaYHora = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSeparadorTitle = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.btnModificarUsuario = new System.Windows.Forms.Button();
-            this.btnActivUsuario = new System.Windows.Forms.Button();
-            this.btnAsistUsuario = new System.Windows.Forms.Button();
-            this.btnPagosUsuario = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pbHuella = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.lblSeparadorTitle = new System.Windows.Forms.Label();
             this.btnActividades = new System.Windows.Forms.Button();
             this.btnPagos = new System.Windows.Forms.Button();
             this.btnAsistencia = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.pnlMain.SuspendLayout();
             this.gbListaUsuarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.gbRegistrarUsuario.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMano)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.pnlHeader.SuspendLayout();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,15 +134,17 @@
             this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.Size = new System.Drawing.Size(958, 611);
             this.dgvUsuarios.TabIndex = 0;
+            this.dgvUsuarios.DoubleClick += new System.EventHandler(this.dgvUsuarios_DoubleClick);
             // 
             // gbRegistrarUsuario
             // 
-            this.gbRegistrarUsuario.Controls.Add(this.btnModificarUsuario);
+            this.gbRegistrarUsuario.Controls.Add(this.btnDarDeBaja);
+            this.gbRegistrarUsuario.Controls.Add(this.btnModificar);
             this.gbRegistrarUsuario.Controls.Add(this.btnActivUsuario);
             this.gbRegistrarUsuario.Controls.Add(this.btnAsistUsuario);
             this.gbRegistrarUsuario.Controls.Add(this.btnPagosUsuario);
-            this.gbRegistrarUsuario.Controls.Add(this.cbCargo);
-            this.gbRegistrarUsuario.Controls.Add(this.lblCargo);
+            this.gbRegistrarUsuario.Controls.Add(this.cmbPermiso);
+            this.gbRegistrarUsuario.Controls.Add(this.lblPermiso);
             this.gbRegistrarUsuario.Controls.Add(this.chkPermisos);
             this.gbRegistrarUsuario.Controls.Add(this.btnHuella5);
             this.gbRegistrarUsuario.Controls.Add(this.btnHuella4);
@@ -149,8 +152,8 @@
             this.gbRegistrarUsuario.Controls.Add(this.btnHuella2);
             this.gbRegistrarUsuario.Controls.Add(this.btnHuella1);
             this.gbRegistrarUsuario.Controls.Add(this.btnCamara);
-            this.gbRegistrarUsuario.Controls.Add(this.pictureBox1);
-            this.gbRegistrarUsuario.Controls.Add(this.pbHuella);
+            this.gbRegistrarUsuario.Controls.Add(this.pbMano);
+            this.gbRegistrarUsuario.Controls.Add(this.pbFoto);
             this.gbRegistrarUsuario.Controls.Add(this.btnRegistrarUsuario);
             this.gbRegistrarUsuario.Controls.Add(this.txtObservaciones);
             this.gbRegistrarUsuario.Controls.Add(this.lblObservaciones);
@@ -181,27 +184,99 @@
             this.gbRegistrarUsuario.TabStop = false;
             this.gbRegistrarUsuario.Visible = false;
             // 
-            // cbCargo
+            // btnDarDeBaja
             // 
-            this.cbCargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbCargo.Font = new System.Drawing.Font("Leelawadee UI", 10F);
-            this.cbCargo.ForeColor = System.Drawing.Color.Black;
-            this.cbCargo.FormattingEnabled = true;
-            this.cbCargo.Location = new System.Drawing.Point(617, 516);
-            this.cbCargo.Name = "cbCargo";
-            this.cbCargo.Size = new System.Drawing.Size(244, 25);
-            this.cbCargo.TabIndex = 59;
+            this.btnDarDeBaja.BackColor = System.Drawing.Color.Gray;
+            this.btnDarDeBaja.BackgroundImage = global::GymTheBeach.Properties.Resources.cancelar;
+            this.btnDarDeBaja.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDarDeBaja.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDarDeBaja.ForeColor = System.Drawing.Color.White;
+            this.btnDarDeBaja.Location = new System.Drawing.Point(70, 575);
+            this.btnDarDeBaja.Name = "btnDarDeBaja";
+            this.btnDarDeBaja.Size = new System.Drawing.Size(40, 40);
+            this.btnDarDeBaja.TabIndex = 57;
+            this.btnDarDeBaja.UseVisualStyleBackColor = false;
+            this.btnDarDeBaja.Click += new System.EventHandler(this.btnDarDeBaja_Click);
             // 
-            // lblCargo
+            // btnModificar
             // 
-            this.lblCargo.AutoSize = true;
-            this.lblCargo.Font = new System.Drawing.Font("Leelawadee UI", 10F);
-            this.lblCargo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
-            this.lblCargo.Location = new System.Drawing.Point(615, 494);
-            this.lblCargo.Name = "lblCargo";
-            this.lblCargo.Size = new System.Drawing.Size(46, 19);
-            this.lblCargo.TabIndex = 58;
-            this.lblCargo.Text = "Cargo";
+            this.btnModificar.BackColor = System.Drawing.Color.Gray;
+            this.btnModificar.BackgroundImage = global::GymTheBeach.Properties.Resources.editar2;
+            this.btnModificar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnModificar.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Location = new System.Drawing.Point(24, 575);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(40, 40);
+            this.btnModificar.TabIndex = 35;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnActivUsuario
+            // 
+            this.btnActivUsuario.BackColor = System.Drawing.Color.Gray;
+            this.btnActivUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.boxeo;
+            this.btnActivUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnActivUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActivUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnActivUsuario.Location = new System.Drawing.Point(116, 523);
+            this.btnActivUsuario.Name = "btnActivUsuario";
+            this.btnActivUsuario.Size = new System.Drawing.Size(40, 40);
+            this.btnActivUsuario.TabIndex = 34;
+            this.btnActivUsuario.UseVisualStyleBackColor = false;
+            this.btnActivUsuario.Click += new System.EventHandler(this.btnActivUsuario_Click);
+            // 
+            // btnAsistUsuario
+            // 
+            this.btnAsistUsuario.BackColor = System.Drawing.Color.Gray;
+            this.btnAsistUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.asistencia;
+            this.btnAsistUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAsistUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsistUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnAsistUsuario.Location = new System.Drawing.Point(70, 523);
+            this.btnAsistUsuario.Name = "btnAsistUsuario";
+            this.btnAsistUsuario.Size = new System.Drawing.Size(40, 40);
+            this.btnAsistUsuario.TabIndex = 33;
+            this.btnAsistUsuario.UseVisualStyleBackColor = false;
+            this.btnAsistUsuario.Click += new System.EventHandler(this.btnAsistUsuario_Click);
+            // 
+            // btnPagosUsuario
+            // 
+            this.btnPagosUsuario.BackColor = System.Drawing.Color.Gray;
+            this.btnPagosUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.pagos;
+            this.btnPagosUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnPagosUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagosUsuario.ForeColor = System.Drawing.Color.White;
+            this.btnPagosUsuario.Location = new System.Drawing.Point(24, 523);
+            this.btnPagosUsuario.Name = "btnPagosUsuario";
+            this.btnPagosUsuario.Size = new System.Drawing.Size(40, 40);
+            this.btnPagosUsuario.TabIndex = 32;
+            this.btnPagosUsuario.UseVisualStyleBackColor = false;
+            this.btnPagosUsuario.Click += new System.EventHandler(this.btnPagosUsuario_Click);
+            // 
+            // cmbPermiso
+            // 
+            this.cmbPermiso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPermiso.Font = new System.Drawing.Font("Leelawadee UI", 10F);
+            this.cmbPermiso.ForeColor = System.Drawing.Color.Black;
+            this.cmbPermiso.FormattingEnabled = true;
+            this.cmbPermiso.Location = new System.Drawing.Point(617, 516);
+            this.cmbPermiso.Name = "cmbPermiso";
+            this.cmbPermiso.Size = new System.Drawing.Size(244, 25);
+            this.cmbPermiso.TabIndex = 24;
+            this.cmbPermiso.Visible = false;
+            // 
+            // lblPermiso
+            // 
+            this.lblPermiso.AutoSize = true;
+            this.lblPermiso.Font = new System.Drawing.Font("Leelawadee UI", 10F);
+            this.lblPermiso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(188)))), ((int)(((byte)(61)))));
+            this.lblPermiso.Location = new System.Drawing.Point(615, 494);
+            this.lblPermiso.Name = "lblPermiso";
+            this.lblPermiso.Size = new System.Drawing.Size(58, 19);
+            this.lblPermiso.TabIndex = 23;
+            this.lblPermiso.Text = "Permiso";
+            this.lblPermiso.Visible = false;
             // 
             // chkPermisos
             // 
@@ -211,9 +286,10 @@
             this.chkPermisos.Location = new System.Drawing.Point(294, 492);
             this.chkPermisos.Name = "chkPermisos";
             this.chkPermisos.Size = new System.Drawing.Size(147, 23);
-            this.chkPermisos.TabIndex = 57;
+            this.chkPermisos.TabIndex = 22;
             this.chkPermisos.Text = "Permisos especiales";
             this.chkPermisos.UseVisualStyleBackColor = true;
+            this.chkPermisos.CheckedChanged += new System.EventHandler(this.chkPermisos_CheckedChanged);
             // 
             // btnHuella5
             // 
@@ -224,7 +300,7 @@
             this.btnHuella5.Location = new System.Drawing.Point(35, 363);
             this.btnHuella5.Name = "btnHuella5";
             this.btnHuella5.Size = new System.Drawing.Size(20, 20);
-            this.btnHuella5.TabIndex = 26;
+            this.btnHuella5.TabIndex = 30;
             this.btnHuella5.Text = "5";
             this.btnHuella5.UseVisualStyleBackColor = false;
             this.btnHuella5.Click += new System.EventHandler(this.btnHuella5_Click);
@@ -238,7 +314,7 @@
             this.btnHuella4.Location = new System.Drawing.Point(69, 323);
             this.btnHuella4.Name = "btnHuella4";
             this.btnHuella4.Size = new System.Drawing.Size(20, 20);
-            this.btnHuella4.TabIndex = 25;
+            this.btnHuella4.TabIndex = 29;
             this.btnHuella4.Text = "4";
             this.btnHuella4.UseVisualStyleBackColor = false;
             this.btnHuella4.Click += new System.EventHandler(this.btnHuella4_Click);
@@ -252,7 +328,7 @@
             this.btnHuella3.Location = new System.Drawing.Point(118, 305);
             this.btnHuella3.Name = "btnHuella3";
             this.btnHuella3.Size = new System.Drawing.Size(20, 20);
-            this.btnHuella3.TabIndex = 24;
+            this.btnHuella3.TabIndex = 28;
             this.btnHuella3.Text = "3";
             this.btnHuella3.UseVisualStyleBackColor = false;
             this.btnHuella3.Click += new System.EventHandler(this.btnHuella3_Click);
@@ -266,7 +342,7 @@
             this.btnHuella2.Location = new System.Drawing.Point(172, 317);
             this.btnHuella2.Name = "btnHuella2";
             this.btnHuella2.Size = new System.Drawing.Size(20, 20);
-            this.btnHuella2.TabIndex = 24;
+            this.btnHuella2.TabIndex = 27;
             this.btnHuella2.Text = "2";
             this.btnHuella2.UseVisualStyleBackColor = false;
             this.btnHuella2.Click += new System.EventHandler(this.btnHuella2_Click);
@@ -280,7 +356,7 @@
             this.btnHuella1.Location = new System.Drawing.Point(217, 409);
             this.btnHuella1.Name = "btnHuella1";
             this.btnHuella1.Size = new System.Drawing.Size(20, 20);
-            this.btnHuella1.TabIndex = 23;
+            this.btnHuella1.TabIndex = 26;
             this.btnHuella1.Text = "1";
             this.btnHuella1.UseVisualStyleBackColor = false;
             this.btnHuella1.Click += new System.EventHandler(this.btnHuella1_Click);
@@ -290,14 +366,39 @@
             this.btnCamara.BackColor = System.Drawing.Color.DimGray;
             this.btnCamara.BackgroundImage = global::GymTheBeach.Properties.Resources.camara_reflex_digital;
             this.btnCamara.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCamara.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCamara.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCamara.ForeColor = System.Drawing.Color.White;
             this.btnCamara.Location = new System.Drawing.Point(24, 46);
             this.btnCamara.Name = "btnCamara";
-            this.btnCamara.Size = new System.Drawing.Size(40, 40);
-            this.btnCamara.TabIndex = 22;
+            this.btnCamara.Size = new System.Drawing.Size(32, 32);
+            this.btnCamara.TabIndex = 25;
             this.btnCamara.UseVisualStyleBackColor = false;
             this.btnCamara.Click += new System.EventHandler(this.btnCamara_Click);
+            // 
+            // pbMano
+            // 
+            this.pbMano.BackColor = System.Drawing.Color.Gray;
+            this.pbMano.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbMano.Image = global::GymTheBeach.Properties.Resources.mano;
+            this.pbMano.Location = new System.Drawing.Point(24, 295);
+            this.pbMano.Name = "pbMano";
+            this.pbMano.Size = new System.Drawing.Size(226, 218);
+            this.pbMano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbMano.TabIndex = 56;
+            this.pbMano.TabStop = false;
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.BackColor = System.Drawing.Color.Gray;
+            this.pbFoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbFoto.Image = global::GymTheBeach.Properties.Resources.usuario;
+            this.pbFoto.Location = new System.Drawing.Point(24, 46);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(226, 218);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFoto.TabIndex = 55;
+            this.pbFoto.TabStop = false;
             // 
             // btnRegistrarUsuario
             // 
@@ -308,7 +409,7 @@
             this.btnRegistrarUsuario.Location = new System.Drawing.Point(294, 571);
             this.btnRegistrarUsuario.Name = "btnRegistrarUsuario";
             this.btnRegistrarUsuario.Size = new System.Drawing.Size(567, 44);
-            this.btnRegistrarUsuario.TabIndex = 28;
+            this.btnRegistrarUsuario.TabIndex = 31;
             this.btnRegistrarUsuario.Text = "REGISTRAR NUEVO USUARIO";
             this.btnRegistrarUsuario.UseVisualStyleBackColor = false;
             this.btnRegistrarUsuario.Click += new System.EventHandler(this.btnRegistrarUsuario_Click);
@@ -641,92 +742,6 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "THE BEACH GYM";
             // 
-            // lblSeparadorTitle
-            // 
-            this.lblSeparadorTitle.BackColor = System.Drawing.Color.DarkGray;
-            this.lblSeparadorTitle.Location = new System.Drawing.Point(12, 207);
-            this.lblSeparadorTitle.Name = "lblSeparadorTitle";
-            this.lblSeparadorTitle.Size = new System.Drawing.Size(214, 2);
-            this.lblSeparadorTitle.TabIndex = 1;
-            // 
-            // timer
-            // 
-            this.timer.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnModificarUsuario
-            // 
-            this.btnModificarUsuario.BackColor = System.Drawing.Color.Gray;
-            this.btnModificarUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.editar2;
-            this.btnModificarUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnModificarUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnModificarUsuario.Location = new System.Drawing.Point(187, 523);
-            this.btnModificarUsuario.Name = "btnModificarUsuario";
-            this.btnModificarUsuario.Size = new System.Drawing.Size(40, 40);
-            this.btnModificarUsuario.TabIndex = 63;
-            this.btnModificarUsuario.UseVisualStyleBackColor = false;
-            // 
-            // btnActivUsuario
-            // 
-            this.btnActivUsuario.BackColor = System.Drawing.Color.Gray;
-            this.btnActivUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.boxeo;
-            this.btnActivUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnActivUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnActivUsuario.Location = new System.Drawing.Point(133, 523);
-            this.btnActivUsuario.Name = "btnActivUsuario";
-            this.btnActivUsuario.Size = new System.Drawing.Size(40, 40);
-            this.btnActivUsuario.TabIndex = 62;
-            this.btnActivUsuario.UseVisualStyleBackColor = false;
-            // 
-            // btnAsistUsuario
-            // 
-            this.btnAsistUsuario.BackColor = System.Drawing.Color.Gray;
-            this.btnAsistUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.asistencia;
-            this.btnAsistUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAsistUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsistUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnAsistUsuario.Location = new System.Drawing.Point(79, 523);
-            this.btnAsistUsuario.Name = "btnAsistUsuario";
-            this.btnAsistUsuario.Size = new System.Drawing.Size(40, 40);
-            this.btnAsistUsuario.TabIndex = 61;
-            this.btnAsistUsuario.UseVisualStyleBackColor = false;
-            // 
-            // btnPagosUsuario
-            // 
-            this.btnPagosUsuario.BackColor = System.Drawing.Color.Gray;
-            this.btnPagosUsuario.BackgroundImage = global::GymTheBeach.Properties.Resources.pagos;
-            this.btnPagosUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnPagosUsuario.Font = new System.Drawing.Font("Leelawadee UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPagosUsuario.ForeColor = System.Drawing.Color.White;
-            this.btnPagosUsuario.Location = new System.Drawing.Point(24, 523);
-            this.btnPagosUsuario.Name = "btnPagosUsuario";
-            this.btnPagosUsuario.Size = new System.Drawing.Size(40, 40);
-            this.btnPagosUsuario.TabIndex = 60;
-            this.btnPagosUsuario.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Gray;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::GymTheBeach.Properties.Resources.mano;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 295);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(226, 218);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 56;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbHuella
-            // 
-            this.pbHuella.BackColor = System.Drawing.Color.Gray;
-            this.pbHuella.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbHuella.Location = new System.Drawing.Point(24, 46);
-            this.pbHuella.Name = "pbHuella";
-            this.pbHuella.Size = new System.Drawing.Size(226, 218);
-            this.pbHuella.TabIndex = 55;
-            this.pbHuella.TabStop = false;
-            // 
             // pbLogo
             // 
             this.pbLogo.BackColor = System.Drawing.Color.Transparent;
@@ -737,6 +752,14 @@
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbLogo.TabIndex = 6;
             this.pbLogo.TabStop = false;
+            // 
+            // lblSeparadorTitle
+            // 
+            this.lblSeparadorTitle.BackColor = System.Drawing.Color.DarkGray;
+            this.lblSeparadorTitle.Location = new System.Drawing.Point(12, 207);
+            this.lblSeparadorTitle.Name = "lblSeparadorTitle";
+            this.lblSeparadorTitle.Size = new System.Drawing.Size(214, 2);
+            this.lblSeparadorTitle.TabIndex = 1;
             // 
             // btnActividades
             // 
@@ -806,6 +829,10 @@
             this.btnUsuario.UseVisualStyleBackColor = false;
             this.btnUsuario.Click += new System.EventHandler(this.btnUsuario_Click);
             // 
+            // timer
+            // 
+            this.timer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -823,11 +850,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.gbRegistrarUsuario.ResumeLayout(false);
             this.gbRegistrarUsuario.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbMano)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHuella)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -880,19 +907,20 @@
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.Button btnHuella1;
         private System.Windows.Forms.Button btnCamara;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pbHuella;
+        private System.Windows.Forms.PictureBox pbMano;
+        private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Button btnHuella5;
         private System.Windows.Forms.Button btnHuella4;
         private System.Windows.Forms.Button btnHuella3;
         private System.Windows.Forms.Button btnHuella2;
         private System.Windows.Forms.CheckBox chkPermisos;
-        private System.Windows.Forms.ComboBox cbCargo;
-        private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.Button btnModificarUsuario;
+        private System.Windows.Forms.ComboBox cmbPermiso;
+        private System.Windows.Forms.Label lblPermiso;
+        private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnActivUsuario;
         private System.Windows.Forms.Button btnAsistUsuario;
         private System.Windows.Forms.Button btnPagosUsuario;
+        private System.Windows.Forms.Button btnDarDeBaja;
     }
 }
 

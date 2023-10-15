@@ -93,6 +93,8 @@
     <Compile Include="SQL\Usuarios.cs">
       <DependentUpon>GymTheBeach.tt</DependentUpon>
     </Compile>
+    <Compile Include="Usuarios\UsuarioDto.cs" />
+    <Compile Include="Usuarios\Usuarios.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

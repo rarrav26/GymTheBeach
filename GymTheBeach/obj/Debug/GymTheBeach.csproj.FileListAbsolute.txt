@@ -19,3 +19,4 @@ C:\Users\r_vil\Documents\Repositorios\GymTheBeach\GymTheBeach\obj\Debug\GymTheBe
 C:\Users\r_vil\Documents\Repositorios\GymTheBeach\GymTheBeach\obj\Debug\GymTheBeach.exe
 C:\Users\r_vil\Documents\Repositorios\GymTheBeach\GymTheBeach\obj\Debug\GymTheBeach.pdb
 C:\Users\r_vil\Documents\Repositorios\GymTheBeach\GymTheBeach\obj\Debug\GymTheBeach.frmRegisterFingerprint.resources
+C:\Users\r_vil\Documents\Repositorios\GymTheBeach\GymTheBeach\bin\Debug\libzkfpcsharp.dll

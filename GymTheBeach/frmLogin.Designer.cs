@@ -99,7 +99,7 @@
             this.lblSeparador.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblSeparador.Location = new System.Drawing.Point(337, 9);
             this.lblSeparador.Name = "lblSeparador";
-            this.lblSeparador.Size = new System.Drawing.Size(2, 180);
+            this.lblSeparador.Size = new System.Drawing.Size(2, 190);
             this.lblSeparador.TabIndex = 6;
             // 
             // lblIngresoConUsuario
@@ -140,7 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(594, 198);
+            this.ClientSize = new System.Drawing.Size(594, 207);
             this.Controls.Add(this.pbHuella);
             this.Controls.Add(this.lblIngresoConHuella);
             this.Controls.Add(this.lblIngresoConUsuario);
